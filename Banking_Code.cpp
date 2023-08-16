@@ -184,7 +184,7 @@ Bank::Bank()
 {
  Account account;
  ifstream infile;
- infile.open("Bank.data");
+ infile.open("Bank.txt");
  if(!infile)
  {
  //cout<<"Error in Opening! File Not Found!!"<<endl;
@@ -206,7 +206,7 @@ Account Bank::OpenAccount(string fname,string lname,float balance)
  Account account(fname,lname,balance);
  accounts.insert(pair<long,Account>(account.getAccNo(),account));
 
- outfile.open("Bank.data", ios::trunc);
+ outfile.open("Bank.txt", ios::trunc);
 
  map<long,Account>::iterator itr;
  for(itr=accounts.begin();itr!=accounts.end();itr++)
@@ -250,7 +250,7 @@ void Bank::ShowAllAccounts()
 Bank::~Bank()
 {
  ofstream outfile;
- outfile.open("Bank.data", ios::trunc);
+ outfile.open("Bank.txt", ios::trunc);
 
  map<long,Account>::iterator itr;
  for(itr=accounts.begin();itr!=accounts.end();itr++)
